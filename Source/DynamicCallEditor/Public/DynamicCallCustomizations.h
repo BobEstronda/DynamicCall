@@ -25,7 +25,7 @@ public:
 
 private:
 	//FText GetSourceLabel() const;
-	///void OnSourceSelected(TSharedPtr<FString> Item, ESelectInfo::Type SelectInfo);
+	void OnSourceSelected(TSharedPtr<FString> Item, ESelectInfo::Type SelectInfo);
 
 	TSharedPtr<IPropertyHandle> PathHandle;
 	//TSharedPtr<IPropertyHandle> KeyHandle;

@@ -90,19 +90,24 @@ namespace
 //	return FText::FromString(SourceKeys.Contains(P->ContextKey) ? Name : Name + TEXT("   (not available here)"));
 //}
 
-//void FDynamicPathCustomization::OnSourceSelected(TSharedPtr<FString> Item, ESelectInfo::Type SelectInfo)
-//{
-//	if (!Item.IsValid() || SelectInfo == ESelectInfo::Direct) return;
-//
-//	const int32 Idx = SourceOptions.IndexOfByKey(Item);
-//	if (!SourceKeys.IsValidIndex(Idx)) return;
-//
-//	KeyHandle->SetValue(SourceKeys[Idx]);
-//	if (TSharedPtr<IPropertyUtilities> U = Utils.Pin())
-//	{
-//		U->RequestForceRefresh();
-//	}
-//}
+void FDynamicPathCustomization::OnSourceSelected(TSharedPtr<FString> Item, ESelectInfo::Type SelectInfo)
+{
+	//if (!Item.IsValid() || SelectInfo == ESelectInfo::Direct) return;
+	//
+	//const int32 Idx = SourceOptions.IndexOfByKey(Item);
+	//if (!SourceKeys.IsValidIndex(Idx)) return;
+	//
+	//KeyHandle->SetValue(SourceKeys[Idx]);
+	//if (TSharedPtr<IPropertyUtilities> U = Utils.Pin())
+	//{
+	//	U->RequestForceRefresh();
+	//}
+
+	if (TSharedPtr<IPropertyUtilities> U = Utils.Pin())
+	{
+		U->RequestForceRefresh();
+	}
+}
 
 void FDynamicPathCustomization::CustomizeHeader(TSharedRef<IPropertyHandle> Handle, FDetailWidgetRow& Row, IPropertyTypeCustomizationUtils& CU)
 {
